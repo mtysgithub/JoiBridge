@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Betalgo.OpenAI.GPT3</id>
+    <version>6.8.3</version>
+    <authors>Tolga Kayhan, Betalgo</authors>
+    <icon>OpenAI-Betalgo.png</icon>
+    <projectUrl>https://openai.com/</projectUrl>
+    <description>Dotnet SDK for OpenAI ChatGPT, Whisper, GPT-4 and DALL·E</description>
+    <copyright>Betalgo Up Ltd.</copyright>
+    <tags>openAI,chatGPT,gpt-4, gpt-3,DALL·E,whisper,azureOpenAI,ai,betalgo,NLP,dalle,,dall-e,OpenAI,OpenAi,openAi,azure</tags>
+    <repository type="git" url="https://github.com/betalgo/openai.git" />
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="Microsoft.Extensions.Http" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Options.ConfigurationExtensions" version="6.0.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Microsoft.Extensions.Http" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Options.ConfigurationExtensions" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.ComponentModel.Annotations" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.Net.Http.Json" version="6.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="G:\JoiBridge\JoiBridge\OpenAI.SDK\bin\Debug\net6.0\OpenAI.GPT3.dll" target="lib\net6.0\OpenAI.GPT3.dll" />
+    <file src="G:\JoiBridge\JoiBridge\OpenAI.SDK\bin\Debug\net6.0\OpenAI.GPT3.xml" target="lib\net6.0\OpenAI.GPT3.xml" />
+    <file src="G:\JoiBridge\JoiBridge\OpenAI.SDK\bin\Debug\netstandard2.0\OpenAI.GPT3.dll" target="lib\netstandard2.0\OpenAI.GPT3.dll" />
+    <file src="G:\JoiBridge\JoiBridge\OpenAI.SDK\bin\Debug\netstandard2.0\OpenAI.GPT3.xml" target="lib\netstandard2.0\OpenAI.GPT3.xml" />
+    <file src="G:\JoiBridge\JoiBridge\OpenAI.SDK\OpenAI-Betalgo.png" target="\OpenAI-Betalgo.png" />
+  </files>
+</package>
