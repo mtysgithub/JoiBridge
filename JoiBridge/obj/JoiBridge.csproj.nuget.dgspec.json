@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\JoiBridge\\JoiBridge\\JoiBridge\\JoiBridge.csproj": {}
+    "G:\\JoiBridge\\JoiBridge\\JoiBridge.csproj": {}
   },
   "projects": {
-    "G:\\JoiBridge\\JoiBridge\\JoiBridge\\JoiBridge.csproj": {
+    "G:\\JoiBridge\\JoiBridge\\JoiBridge.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\JoiBridge\\JoiBridge\\JoiBridge\\JoiBridge.csproj",
+        "projectUniqueName": "G:\\JoiBridge\\JoiBridge\\JoiBridge.csproj",
         "projectName": "JoiBridge",
-        "projectPath": "G:\\JoiBridge\\JoiBridge\\JoiBridge\\JoiBridge.csproj",
+        "projectPath": "G:\\JoiBridge\\JoiBridge\\JoiBridge.csproj",
         "packagesPath": "C:\\Users\\williamtyma\\.nuget\\packages\\",
-        "outputPath": "G:\\JoiBridge\\JoiBridge\\JoiBridge\\obj\\",
+        "outputPath": "G:\\JoiBridge\\JoiBridge\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
@@ -34,16 +34,16 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "G:\\JoiBridge\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj": {
-                "projectPath": "G:\\JoiBridge\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj"
+              "G:\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj": {
+                "projectPath": "G:\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj"
               }
             }
           },
           "netstandard2.0": {
             "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "G:\\JoiBridge\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj": {
-                "projectPath": "G:\\JoiBridge\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj"
+              "G:\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj": {
+                "projectPath": "G:\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj"
               }
             }
           }
@@ -190,14 +190,14 @@
         }
       }
     },
-    "G:\\JoiBridge\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj": {
+    "G:\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj": {
       "version": "6.8.3",
       "restore": {
-        "projectUniqueName": "G:\\JoiBridge\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj",
+        "projectUniqueName": "G:\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj",
         "projectName": "Betalgo.OpenAI.GPT3",
-        "projectPath": "G:\\JoiBridge\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj",
+        "projectPath": "G:\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj",
         "packagesPath": "C:\\Users\\williamtyma\\.nuget\\packages\\",
-        "outputPath": "G:\\JoiBridge\\JoiBridge\\OpenAI.SDK\\obj\\",
+        "outputPath": "G:\\JoiBridge\\OpenAI.SDK\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

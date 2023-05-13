@@ -52,14 +52,7 @@ G:\JoiBridge\openai_csharp\OpenAI.Playground\obj\Debug\netstandard2.0\JoiBridge.
 G:\JoiBridge\openai_csharp\OpenAI.Playground\obj\Debug\netstandard2.0\JoiBridge.pdb
 G:\JoiBridge\JoiBridge\obj\Debug\netstandard2.0\JoiBridge.dll
 G:\JoiBridge\JoiBridge\obj\Debug\netstandard2.0\JoiBridge.pdb
-G:\JoiBridge\JoiBridge\bin\Debug\netstandard2.0\SampleData\TokenizerSample.txt
 G:\JoiBridge\JoiBridge\bin\Debug\netstandard2.0\ApiSettings.json
-G:\JoiBridge\JoiBridge\bin\Debug\netstandard2.0\SampleData\FineTuningSample1.jsonl
-G:\JoiBridge\JoiBridge\bin\Debug\netstandard2.0\SampleData\image_edit_mask.png
-G:\JoiBridge\JoiBridge\bin\Debug\netstandard2.0\SampleData\image_edit_original.png
-G:\JoiBridge\JoiBridge\bin\Debug\netstandard2.0\SampleData\micro-machines.mp3
-G:\JoiBridge\JoiBridge\bin\Debug\netstandard2.0\SampleData\multilingual.mp3
-G:\JoiBridge\JoiBridge\bin\Debug\netstandard2.0\SampleData\SentimentAnalysisSample.jsonl
 G:\JoiBridge\JoiBridge\bin\Debug\netstandard2.0\JoiBridge.dll.config
 G:\JoiBridge\JoiBridge\bin\Debug\netstandard2.0\JoiBridge.deps.json
 G:\JoiBridge\JoiBridge\bin\Debug\netstandard2.0\JoiBridge.dll

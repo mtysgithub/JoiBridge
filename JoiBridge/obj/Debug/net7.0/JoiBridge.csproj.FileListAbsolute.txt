@@ -3,14 +3,7 @@ G:\JoiBridge\JoiBridge\obj\Debug\net7.0\JoiBridge.GeneratedMSBuildEditorConfig.e
 G:\JoiBridge\JoiBridge\obj\Debug\net7.0\JoiBridge.AssemblyInfoInputs.cache
 G:\JoiBridge\JoiBridge\obj\Debug\net7.0\JoiBridge.AssemblyInfo.cs
 G:\JoiBridge\JoiBridge\obj\Debug\net7.0\JoiBridge.csproj.CoreCompileInputs.cache
-G:\JoiBridge\JoiBridge\bin\Debug\net7.0\SampleData\TokenizerSample.txt
 G:\JoiBridge\JoiBridge\bin\Debug\net7.0\ApiSettings.json
-G:\JoiBridge\JoiBridge\bin\Debug\net7.0\SampleData\FineTuningSample1.jsonl
-G:\JoiBridge\JoiBridge\bin\Debug\net7.0\SampleData\image_edit_mask.png
-G:\JoiBridge\JoiBridge\bin\Debug\net7.0\SampleData\image_edit_original.png
-G:\JoiBridge\JoiBridge\bin\Debug\net7.0\SampleData\micro-machines.mp3
-G:\JoiBridge\JoiBridge\bin\Debug\net7.0\SampleData\multilingual.mp3
-G:\JoiBridge\JoiBridge\bin\Debug\net7.0\SampleData\SentimentAnalysisSample.jsonl
 G:\JoiBridge\JoiBridge\bin\Debug\net7.0\JoiBridge.exe
 G:\JoiBridge\JoiBridge\bin\Debug\net7.0\JoiBridge.dll.config
 G:\JoiBridge\JoiBridge\bin\Debug\net7.0\JoiBridge.deps.json

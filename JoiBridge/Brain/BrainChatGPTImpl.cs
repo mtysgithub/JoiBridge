@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,8 @@ using OpenAI.GPT3.Interfaces;
 using OpenAI.GPT3.ObjectModels;
 using OpenAI.GPT3.ObjectModels.RequestModels;
 
-using OpenAI.Playground;
+using OpenAI.GPT3;
+using OpenAI.GPT3.Managers;
 
 namespace JoiBridge.Brain
 {
@@ -26,23 +28,14 @@ namespace JoiBridge.Brain
 
         public async Task Build()
         {
-            var builder = new ConfigurationBuilder()
-                .AddJsonFile("ApiSettings.json")
-                .AddUserSecrets<Program>();
+            OpenAiOptions Option = new OpenAiOptions()
+            {
+                ApiKey = Environment.GetEnvironmentVariable("ApiKey"),
+                Organization = Environment.GetEnvironmentVariable("Organization")
+            };
+            var OpenAiService = new OpenAIService(Option);
 
-            IConfiguration configuration = builder.Build();
-            var ServiceCollection = new ServiceCollection();
-            ServiceCollection.AddScoped(_ => configuration);
-
-#if NET6_0_OR_GREATER
-            // Laser cat eyes is a tool that shows your requests and responses between OpenAI server and your client.
-            // Get your app key from https://lasercateyes.com for FREE and put it under ApiSettings.json or secrets.json.
-            // It is in Beta version, if you don't want to use it just comment out below line.
-            ServiceCollection.AddLaserCatEyesHttpClientListener();
-#endif
-
-            ServiceCollection.AddOpenAIService();
-            Sdk = ServiceCollection.BuildServiceProvider().GetRequiredService<IOpenAIService>();
+            Sdk = OpenAiService;
         }
 
         public async Task<String> Talk(string userMessage)

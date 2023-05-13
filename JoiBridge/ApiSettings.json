@@ -1,9 +1,8 @@
 {
-
   // How to use user secret => right click your project name in solution explorer then click Manage User Secret, it is a good way to keep your api keys :)
   "OpenAIServiceOptions": {
-    "Organization": "org-Bd20ryf2gk59dyvhEAaDSG3f" //https:// platform.openai.com/account/org-settings
-    ,"ApiKey":"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" //How can I get an app key? visit here: https://openai.com/
+    //"Organization":"" //https:// platform.openai.com/account/org-settings
+    //,"ApiKey":"" //How can I get an app key? visit here: https://openai.com/
     ////,"ValidateApiOptions": false // if you want to skip options validation.
   },
   //// Azure Sample

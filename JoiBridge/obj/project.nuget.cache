@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MAogomDkLhanjEjsxUmz8qvfH1iRud5rRi8YEs7hFfri8pWpB0O75bYjujSR2njP0nfVT+6q5ZmewS7g+C/PVw==",
+  "dgSpecHash": "Q4cbmzacj9Gofh6FzTNA2pFu+4qooyzOmU2wFAg/TJVUGYXboOl7tKHg3Q+5zHJtjmmedaLDje9LIxRPYN1eeA==",
   "success": true,
-  "projectFilePath": "G:\\JoiBridge\\JoiBridge\\JoiBridge\\JoiBridge.csproj",
+  "projectFilePath": "G:\\JoiBridge\\JoiBridge\\JoiBridge.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\williamtyma\\.nuget\\packages\\lasercateyes.dataservicesdk\\6.0.0\\lasercateyes.dataservicesdk.6.0.0.nupkg.sha512",
     "C:\\Users\\williamtyma\\.nuget\\packages\\lasercateyes.domain\\1.0.6\\lasercateyes.domain.1.0.6.nupkg.sha512",
