@@ -51,11 +51,11 @@ namespace JoiBridge.Brain
                 var CompletionResult = Sdk.ChatCompletion.CreateCompletionAsStream(new ChatCompletionCreateRequest
                 {
                     Messages = HistoricalMessages,
-                    MaxTokens = 100,
+                    MaxTokens = 250,
                     Model = Models.ChatGpt3_5Turbo0301
                 });
 
-                //Console.Write("Joi: ");
+                Console.Write("Joi: ");
                 string CompleteMessage = "";
                 string SpeakBuff = string.Empty;
                 await foreach (var Completion in CompletionResult)
