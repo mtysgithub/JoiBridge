@@ -18,6 +18,7 @@ using OpenAI.GPT3.ObjectModels.RequestModels;
 
 using OpenAI.GPT3;
 using OpenAI.GPT3.Managers;
+using JoiBridge.Speak;
 
 namespace JoiBridge.Brain
 {
@@ -26,8 +27,10 @@ namespace JoiBridge.Brain
         private List<ChatMessage> HistoricalMessages = new List<ChatMessage>();
         private int MaxHistoryEntries = 50;
 
-        public async Task Build()
+        public override async Task Build(SpeakerBase InSpeaker) 
         {
+            base.Build(InSpeaker);
+
             OpenAiOptions Option = new OpenAiOptions()
             {
                 ApiKey = Environment.GetEnvironmentVariable("ApiKey"),
@@ -49,17 +52,26 @@ namespace JoiBridge.Brain
                 {
                     Messages = HistoricalMessages,
                     MaxTokens = 100,
-                    Model = Models.Gpt_4_0314
+                    Model = Models.ChatGpt3_5Turbo0301
                 });
 
                 //Console.Write("Joi: ");
                 string CompleteMessage = "";
+                string SpeakBuff = string.Empty;
                 await foreach (var Completion in CompletionResult)
                 {
                     if (Completion.Successful)
                     {
                         CompleteMessage += Completion.Choices.First().Message.Content;
                         Console.Write(Completion.Choices.First().Message.Content);
+
+                        SpeakBuff += Completion.Choices.First().Message.Content;
+                        if (SpeakBuff.Contains(",") || SpeakBuff.Contains(".") || SpeakBuff.Contains("?") || SpeakBuff.Contains("!") ||
+                            SpeakBuff.Contains("，") || SpeakBuff.Contains("。") || SpeakBuff.Contains("？") || SpeakBuff.Contains("！"))
+                        {
+                            await Speaker.Speak(SpeakBuff);
+                            SpeakBuff = string.Empty;
+                        }
                     }
                     else
                     {
@@ -71,6 +83,13 @@ namespace JoiBridge.Brain
                         Console.WriteLine($"{Completion.Error.Code}: {Completion.Error.Message}");
                     }
                 }
+
+                if (!string.IsNullOrEmpty(SpeakBuff))
+                {
+                    Speaker.Speak(SpeakBuff);
+                    SpeakBuff = string.Empty;
+                }
+
                 Console.WriteLine();
 
                 //Console.WriteLine("Check Complete Message: " + CompleteMessage);
