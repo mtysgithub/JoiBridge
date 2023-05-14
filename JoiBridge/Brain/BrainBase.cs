@@ -25,5 +25,10 @@ namespace JoiBridge.Brain
         {
 
         }
+
+        public virtual bool ParseGM(string HumanInputString)
+        {
+            return false;
+        }
     }
 }

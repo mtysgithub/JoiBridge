@@ -28,27 +28,7 @@ class Program
             return true;
         }
 
-        if (HumanInputString.ToLower() == "{导出}")
-        {
-            Brain.OutputHistoricalMessages();
-            return true;
-        }
-
-        // 使用正则表达式匹配 {面具 "文件名"} 的字符串并提取文件名
-        string Pattern = @"\{面具 (.+?)\}";
-        Match MatchRet = Regex.Match(HumanInputString, Pattern);
-
-        if (MatchRet.Success)
-        {
-            string FileName = MatchRet.Groups[1].Value;
-            Console.WriteLine("提取到的文件名为：" + FileName);
-
-            Brain.SetMask(FileName);
-            return true;
-
-        }
-
-        return false;
+        return Brain.ParseGM(HumanInputString);
     }
 
     async static Task Main(string[] args)

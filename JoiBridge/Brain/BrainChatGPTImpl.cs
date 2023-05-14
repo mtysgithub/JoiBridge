@@ -19,6 +19,7 @@ using OpenAI.GPT3.ObjectModels.RequestModels;
 using OpenAI.GPT3;
 using OpenAI.GPT3.Managers;
 using JoiBridge.Speak;
+using System.Text.RegularExpressions;
 
 namespace JoiBridge.Brain
 {
@@ -196,6 +197,46 @@ namespace JoiBridge.Brain
             {
                 Console.WriteLine("读取文件失败：" + ex.Message);
             }
+        }
+
+        public override bool ParseGM(string HumanInputString)
+        {
+            if (base.ParseGM(HumanInputString))
+            {
+                return true;
+            }
+            
+            if (HumanInputString.ToLower() == "{导出}")
+            {
+                this.OutputHistoricalMessages();
+                return true;
+            }
+
+            // 使用正则表达式匹配 {面具 "文件名"} 的字符串并提取文件名
+            string MaskPattern = @"\{面具 (.+?)\}";
+            Match MaskMatchRet = Regex.Match(HumanInputString, MaskPattern);
+
+            if (MaskMatchRet.Success)
+            {
+                string FileName = MaskMatchRet.Groups[1].Value;
+                Console.WriteLine("提取到的文件名为：" + FileName);
+
+                this.SetMask(FileName);
+                return true;
+
+            }
+
+            string ChangeMemSizePattern = @"\{记忆条数 (.+?)\}";
+            Match ChangeMemSizeMatchRet = Regex.Match(HumanInputString, ChangeMemSizePattern);
+            if (ChangeMemSizeMatchRet.Success)
+            {
+                string val = ChangeMemSizeMatchRet.Groups[1].Value;
+                MaxHistoryEntries = Int32.Parse(val);
+                Console.WriteLine("改变记忆尺寸 {0}条消息", MaxHistoryEntries);
+                return true;
+            }
+
+            return false;
         }
     }
 }
