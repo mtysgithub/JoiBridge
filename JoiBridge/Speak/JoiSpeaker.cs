@@ -59,30 +59,5 @@ namespace JoiBridge.Speak
                     break;
             }
         }
-
-
-        static void OutputSpeechRecognitionResult(SpeechRecognitionResult SpeechRecognitionResult)
-        {
-            switch (SpeechRecognitionResult.Reason)
-            {
-                case ResultReason.RecognizedSpeech:
-                    Console.WriteLine($"RECOGNIZED: Text={SpeechRecognitionResult.Text}");
-                    break;
-                case ResultReason.NoMatch:
-                    Console.WriteLine($"NOMATCH: Speech could not be recognized.");
-                    break;
-                case ResultReason.Canceled:
-                    var cancellation = CancellationDetails.FromResult(SpeechRecognitionResult);
-                    Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
-
-                    if (cancellation.Reason == CancellationReason.Error)
-                    {
-                        Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
-                        Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-                        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
-                    }
-                    break;
-            }
-        }
     }
 }

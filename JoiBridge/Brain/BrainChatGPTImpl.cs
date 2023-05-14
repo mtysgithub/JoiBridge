@@ -132,7 +132,7 @@ namespace JoiBridge.Brain
         public override void OutputHistoricalMessages()
         {
             string fileName = $"{Guid.NewGuid()}_{DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")}.txt";
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + Program.DataDirPath, fileName);
 
             using (StreamWriter writer = new StreamWriter(filePath))
             {
@@ -149,7 +149,7 @@ namespace JoiBridge.Brain
 
             // 从文件夹位置中读取文件
             string fileName = MaskFileName;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + Program.DataDirPath, fileName);
 
             // 读取文件内容并保存到string
             string fileContent;
@@ -206,14 +206,14 @@ namespace JoiBridge.Brain
                 return true;
             }
             
-            if (HumanInputString.ToLower() == "{导出}")
+            if (HumanInputString.ToLower() == "导出对话记录")
             {
                 this.OutputHistoricalMessages();
                 return true;
             }
 
             // 使用正则表达式匹配 {面具 "文件名"} 的字符串并提取文件名
-            string MaskPattern = @"\{面具 (.+?)\}";
+            string MaskPattern = @"\{切换面具 (.+?)\}";
             Match MaskMatchRet = Regex.Match(HumanInputString, MaskPattern);
 
             if (MaskMatchRet.Success)
