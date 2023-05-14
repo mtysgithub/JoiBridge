@@ -40,3 +40,17 @@ G:\JoiBridge\JoiBridge\OpenAI.SDK\obj\Debug\net6.0\refint\OpenAI.GPT3.dll
 G:\JoiBridge\JoiBridge\OpenAI.SDK\obj\Debug\net6.0\OpenAI.GPT3.xml
 G:\JoiBridge\JoiBridge\OpenAI.SDK\obj\Debug\net6.0\OpenAI.GPT3.pdb
 G:\JoiBridge\JoiBridge\OpenAI.SDK\obj\Debug\net6.0\ref\OpenAI.GPT3.dll
+C:\Users\Surfacelaptop\Documents\GitHub\JoiBridge\JoiBridge\OpenAI.SDK\bin\Debug\net6.0\OpenAI.GPT3.deps.json
+C:\Users\Surfacelaptop\Documents\GitHub\JoiBridge\JoiBridge\OpenAI.SDK\bin\Debug\net6.0\OpenAI.GPT3.dll
+C:\Users\Surfacelaptop\Documents\GitHub\JoiBridge\JoiBridge\OpenAI.SDK\bin\Debug\net6.0\OpenAI.GPT3.pdb
+C:\Users\Surfacelaptop\Documents\GitHub\JoiBridge\JoiBridge\OpenAI.SDK\bin\Debug\net6.0\OpenAI.GPT3.xml
+C:\Users\Surfacelaptop\Documents\GitHub\JoiBridge\JoiBridge\OpenAI.SDK\obj\Debug\net6.0\OpenAI.GPT3.csproj.AssemblyReference.cache
+C:\Users\Surfacelaptop\Documents\GitHub\JoiBridge\JoiBridge\OpenAI.SDK\obj\Debug\net6.0\OpenAI.GPT3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Surfacelaptop\Documents\GitHub\JoiBridge\JoiBridge\OpenAI.SDK\obj\Debug\net6.0\OpenAI.GPT3.AssemblyInfoInputs.cache
+C:\Users\Surfacelaptop\Documents\GitHub\JoiBridge\JoiBridge\OpenAI.SDK\obj\Debug\net6.0\OpenAI.GPT3.AssemblyInfo.cs
+C:\Users\Surfacelaptop\Documents\GitHub\JoiBridge\JoiBridge\OpenAI.SDK\obj\Debug\net6.0\OpenAI.GPT3.csproj.CoreCompileInputs.cache
+C:\Users\Surfacelaptop\Documents\GitHub\JoiBridge\JoiBridge\OpenAI.SDK\obj\Debug\net6.0\OpenAI.GPT3.dll
+C:\Users\Surfacelaptop\Documents\GitHub\JoiBridge\JoiBridge\OpenAI.SDK\obj\Debug\net6.0\refint\OpenAI.GPT3.dll
+C:\Users\Surfacelaptop\Documents\GitHub\JoiBridge\JoiBridge\OpenAI.SDK\obj\Debug\net6.0\OpenAI.GPT3.xml
+C:\Users\Surfacelaptop\Documents\GitHub\JoiBridge\JoiBridge\OpenAI.SDK\obj\Debug\net6.0\OpenAI.GPT3.pdb
+C:\Users\Surfacelaptop\Documents\GitHub\JoiBridge\JoiBridge\OpenAI.SDK\obj\Debug\net6.0\ref\OpenAI.GPT3.dll

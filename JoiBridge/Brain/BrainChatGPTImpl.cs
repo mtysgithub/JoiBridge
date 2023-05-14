@@ -71,7 +71,7 @@ namespace JoiBridge.Brain
                 var CompletionResult = Sdk.ChatCompletion.CreateCompletionAsStream(new ChatCompletionCreateRequest
                 {
                     Messages = LastKMessages,
-                    MaxTokens = 250,
+                    MaxTokens = 350,
                     Model = Models.ChatGpt3_5Turbo0301
                 });
 

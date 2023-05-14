@@ -23,7 +23,7 @@ namespace JoiBridge.Speak
 
             var SpeechConfig = Microsoft.CognitiveServices.Speech.SpeechConfig.FromSubscription(SpeechKey, SpeechRegion);
             SpeechConfig.SpeechRecognitionLanguage = "zh-CN";
-            SpeechConfig.SpeechSynthesisVoiceName = "zh-CN-XiaochenNeural";
+            SpeechConfig.SpeechSynthesisVoiceName = "zh-CN-XiaoxiaoNeural";
 
             var AutoDetectSourceLanguageConfig =
                 Microsoft.CognitiveServices.Speech.AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "zh-CN" });

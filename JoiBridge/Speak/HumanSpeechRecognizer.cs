@@ -54,7 +54,28 @@ namespace JoiBridge.Speak
 
         async Task Wakeup()
         {
-            KeywordRecognitionResult result = await KdRecognizer.RecognizeOnceAsync(KeywordModel_StartRecord);
+            KeywordRecognitionResult SpeechRecognitionResult = await KdRecognizer.RecognizeOnceAsync(KeywordModel_StartRecord);
+
+            switch (SpeechRecognitionResult.Reason)
+            {
+                case ResultReason.RecognizedKeyword:
+                    Console.WriteLine($"RECOGNIZED: Text={SpeechRecognitionResult.Text}");
+                    break;
+                case ResultReason.RecognizingKeyword:
+                    Console.WriteLine($"RECOGNIZED: Text={SpeechRecognitionResult.Text}");
+                    break;
+                case ResultReason.Canceled:
+                    var cancellation = CancellationDetails.FromResult(SpeechRecognitionResult);
+                    Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
+
+                    if (cancellation.Reason == CancellationReason.Error)
+                    {
+                        Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
+                        Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
+                        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
+                    }
+                    break;
+            }
         }
 
         public async Task<string> RecordTextFromVoice()
