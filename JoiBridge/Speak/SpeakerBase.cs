@@ -12,5 +12,10 @@ namespace JoiBridge.Speak
         {
 
         }
+
+        public virtual async Task Build()
+        {
+
+        }
     }
 }

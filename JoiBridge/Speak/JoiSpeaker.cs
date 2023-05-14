@@ -17,7 +17,7 @@ namespace JoiBridge.Speak
 
         SpeechSynthesizer SpeakHandler;
 
-        public async Task Build()
+        public override async Task Build()
         {
             var SpeechConfig = Microsoft.CognitiveServices.Speech.SpeechConfig.FromSubscription(SpeechKey, SpeechRegion);
             SpeechConfig.SpeechRecognitionLanguage = "zh-CN";

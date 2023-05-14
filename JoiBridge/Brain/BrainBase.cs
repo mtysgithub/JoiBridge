@@ -15,5 +15,15 @@ namespace JoiBridge.Brain
         {
             Speaker = InSpeaker;
         }
+
+        public virtual void OutputHistoricalMessages()
+        {
+
+        }
+
+        public virtual void SetMask(string MaskFileName)
+        {
+
+        }
     }
 }
