@@ -30,11 +30,11 @@ namespace JoiBridge.Brain
         #endregion
 
         public List<ChatMessage> HistoricalMessages = new List<ChatMessage>();
-        private IOpenAIService Sdk;
+        private IOpenAIService? Sdk;
 
         public override async Task Build(SpeakerBase InSpeaker) 
         {
-            base.Build(InSpeaker);
+            await base.Build(InSpeaker);
 
             OpenAiOptions Option = new OpenAiOptions()
             {
@@ -106,7 +106,7 @@ namespace JoiBridge.Brain
 
                 if (!string.IsNullOrEmpty(SpeakBuff))
                 {
-                    Speaker.Speak(SpeakBuff);
+                    await Speaker.Speak(SpeakBuff);
                     SpeakBuff = string.Empty;
                 }
 

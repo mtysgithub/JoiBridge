@@ -19,6 +19,8 @@ namespace JoiBridge.Speak
 
         public override async Task Build()
         {
+            await base.Build();
+
             var SpeechConfig = Microsoft.CognitiveServices.Speech.SpeechConfig.FromSubscription(SpeechKey, SpeechRegion);
             SpeechConfig.SpeechRecognitionLanguage = "zh-CN";
             SpeechConfig.SpeechSynthesisVoiceName = "zh-CN-XiaochenNeural";
@@ -31,7 +33,7 @@ namespace JoiBridge.Speak
 
         public override async Task Speak(string content)
         {
-            base.Speak(content);
+            await base.Speak(content);
 
             var SpeechSynthesisResult = await SpeakHandler.SpeakTextAsync(content);
             OutputSpeechSynthesisResult(SpeechSynthesisResult, content);

@@ -1,4 +1,4 @@
-﻿namespace OpenAI.Playground;
+﻿namespace JoiBridge;
 
 public static class ConsoleExtensions
 {
