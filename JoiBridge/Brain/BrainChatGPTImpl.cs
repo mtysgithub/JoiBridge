@@ -27,7 +27,10 @@ namespace JoiBridge.Brain
     {
         #region 配置
         private int MaxHistoryEntries = 20;
+        private int CacheContentSegementNumberBeforeSpeak = 2;  //使用语音表达之前缓存几段分割文字
         #endregion
+
+        int CacheContentSegementCounter = 0;
 
         public List<ChatMessage> HistoricalMessages = new List<ChatMessage>();
         private IOpenAIService? Sdk;
@@ -78,7 +81,11 @@ namespace JoiBridge.Brain
                 Console.WriteLine();
                 ConsoleExtensions.WriteLine("## Joi的消息: ", ConsoleColor.Blue);
                 string CompleteMessage = "";
+
                 string SpeakBuff = string.Empty;
+                int StartSpeakIndex = 0;
+                int StopSpeakIndex = 0;
+
                 await foreach (var Completion in CompletionResult)
                 {
                     if (Completion.Successful)
@@ -86,12 +93,28 @@ namespace JoiBridge.Brain
                         CompleteMessage += Completion.Choices.First().Message.Content;
                         ConsoleExtensions.Write(Completion.Choices.First().Message.Content, ConsoleColor.Blue);
 
-                        SpeakBuff += Completion.Choices.First().Message.Content;
-                        if (SpeakBuff.Contains(",") || SpeakBuff.Contains(".") || SpeakBuff.Contains("?") || SpeakBuff.Contains("!") ||
-                            SpeakBuff.Contains("，") || SpeakBuff.Contains("。") || SpeakBuff.Contains("？") || SpeakBuff.Contains("！"))
+                        CacheContentSegementCounter = 0;
+                        for (int i = StartSpeakIndex; i < CompleteMessage.Length; i++)
                         {
-                            await Speaker.Speak(SpeakBuff);
-                            SpeakBuff = string.Empty;
+                            if (CompleteMessage[i] == (',') || CompleteMessage[i] == ('.') || CompleteMessage[i] == ('?') || CompleteMessage[i] == ('!') ||
+                            CompleteMessage[i] == ('，') || CompleteMessage[i] == ('。') || CompleteMessage[i] == ('？') || CompleteMessage[i] == ('！'))
+                            {
+                                StopSpeakIndex = i;
+                                ++CacheContentSegementCounter;
+
+                                if (CacheContentSegementCounter >= CacheContentSegementNumberBeforeSpeak)
+                                {
+                                    SpeakBuff = CompleteMessage.Substring(StartSpeakIndex, StopSpeakIndex - StartSpeakIndex + 1);
+
+                                    await Speaker.Speak(SpeakBuff);
+                                    SpeakBuff = string.Empty;
+
+                                    StartSpeakIndex = StopSpeakIndex + 1;
+                                    CacheContentSegementCounter = 0;
+
+                                    break;
+                                }
+                            }
                         }
                     }
                     else
@@ -105,10 +128,15 @@ namespace JoiBridge.Brain
                     }
                 }
 
-                if (!string.IsNullOrEmpty(SpeakBuff))
+                if (StartSpeakIndex != CompleteMessage.Length)
                 {
+                    SpeakBuff = CompleteMessage.Substring(StartSpeakIndex, CompleteMessage.Length - StartSpeakIndex);
+
                     await Speaker.Speak(SpeakBuff);
                     SpeakBuff = string.Empty;
+
+                    StartSpeakIndex = CompleteMessage.Length;
+                    CacheContentSegementCounter = 0;
                 }
 
                 Console.WriteLine();

@@ -60,7 +60,7 @@ namespace JoiBridge.Speak
 
             try
             {
-                string KeywordModel_StartRecord_FilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + Program.DataDirPath, "6cff1c10-91d5-4fef-9b42-76c36ac75161.table");
+                string KeywordModel_StartRecord_FilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + Program.DataDirPath, "Kd_Joi_EN.table");
                 KeywordModel_StartRecord = KeywordRecognitionModel.FromFile(KeywordModel_StartRecord_FilePath);
                 KdRecognizer = new KeywordRecognizer(AudioConf);
 
@@ -122,6 +122,7 @@ namespace JoiBridge.Speak
             string ret = string.Empty;
 
             Console.WriteLine("正在采集你的声音");
+            await Program.Brain.Speaker.Speak("我在听");
             var speechRecognitionResult = await SpeechToTextService.RecognizeOnceAsync();
             ret = OutputSpeechRecognitionResult(speechRecognitionResult);
 

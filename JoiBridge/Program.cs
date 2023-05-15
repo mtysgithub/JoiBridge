@@ -16,7 +16,8 @@ class Program
 
     static bool Runing = false;
 
-    static HumanSpeechRecognizer MySpeechRecognizer = null;
+    public static HumanSpeechRecognizer MySpeechRecognizer = null;
+    public static BrainChatGPTImpl Brain = null;
 
     private static string _lastPickupTerminalResult;
 
@@ -85,7 +86,7 @@ class Program
         SpeakerBase Speaker = new JoiSpeaker();
         await Speaker.Build();
 
-        BrainChatGPTImpl Brain = new BrainChatGPTImpl();
+        Brain = new BrainChatGPTImpl();
         await Brain.Build(Speaker);
 
         Task.Run(() =>

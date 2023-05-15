@@ -9,7 +9,7 @@ namespace JoiBridge.Brain
 {
     internal class BrainBase
     {
-        protected SpeakerBase Speaker = null;
+        public SpeakerBase Speaker = null;
 
         public virtual async Task Build(SpeakerBase InSpeaker)
         {

@@ -1416,25 +1416,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\williamtyma\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Surfacelaptop\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "6.8.3",
     "restore": {
-      "projectUniqueName": "G:\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj",
+      "projectUniqueName": "C:\\Users\\Surfacelaptop\\Documents\\GitHub\\JoiBridge\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj",
       "projectName": "Betalgo.OpenAI.GPT3",
-      "projectPath": "G:\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj",
-      "packagesPath": "C:\\Users\\williamtyma\\.nuget\\packages\\",
-      "outputPath": "G:\\JoiBridge\\OpenAI.SDK\\obj\\",
+      "projectPath": "C:\\Users\\Surfacelaptop\\Documents\\GitHub\\JoiBridge\\JoiBridge\\OpenAI.SDK\\OpenAI.GPT3.csproj",
+      "packagesPath": "C:\\Users\\Surfacelaptop\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Surfacelaptop\\Documents\\GitHub\\JoiBridge\\JoiBridge\\OpenAI.SDK\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\williamtyma\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Surfacelaptop\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
