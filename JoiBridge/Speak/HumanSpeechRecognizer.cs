@@ -22,6 +22,24 @@ namespace JoiBridge.Speak
 
         bool HumanVoiceRecording = false;
 
+        private string _lastPickupVoiceResult;
+
+        public string LastPickupVoiceResult
+        {
+            get
+            {
+                if (_lastPickupVoiceResult != null)
+                {
+                    var result = _lastPickupVoiceResult;
+                    _lastPickupVoiceResult = null;
+                    return result;
+                }
+
+                return null;
+            }
+            private set => _lastPickupVoiceResult = value;
+        }
+
         public bool Valid()
         {
             return SpeechToTextService != null;
@@ -31,6 +49,8 @@ namespace JoiBridge.Speak
         {
             var SpeechConfig = Microsoft.CognitiveServices.Speech.SpeechConfig.FromSubscription(SpeechKey, SpeechRegion);
             SpeechConfig.SpeechRecognitionLanguage = "zh-CN";
+
+            //https://learn.microsoft.com/zh-cn/azure/cognitive-services/speech-service/language-support?tabs=tts
             SpeechConfig.SpeechSynthesisVoiceName = "zh-CN-XiaochenNeural";
 
             var AutoDetectSourceLanguageConfig =
@@ -50,6 +70,9 @@ namespace JoiBridge.Speak
             {
                 ConsoleExtensions.WriteLine(ex.ToString(), ConsoleColor.Red);
             }
+
+            // 在新线程中启动 RecordTextFromVoice
+            Task.Run(() => RecordTextFromVoice());
         }
 
         async Task Wakeup()
@@ -78,17 +101,31 @@ namespace JoiBridge.Speak
             }
         }
 
-        public async Task<string> RecordTextFromVoice()
+        public async void RecordTextFromVoice()
+        {
+            while (true)
+            {
+                if (Valid())
+                {
+                    Console.WriteLine("## 来自你的消息: ");
+
+                    var text = await GetTextFromVoice();
+                    _lastPickupVoiceResult = text;
+                }
+            }
+        }
+
+        private async Task<string> GetTextFromVoice()
         {
             await Wakeup();
 
-            string Ret = string.Empty;
+            string ret = string.Empty;
 
             Console.WriteLine("正在采集你的声音");
-            var SpeechRecognitionResult = await SpeechToTextService.RecognizeOnceAsync();
-            Ret = OutputSpeechRecognitionResult(SpeechRecognitionResult);
+            var speechRecognitionResult = await SpeechToTextService.RecognizeOnceAsync();
+            ret = OutputSpeechRecognitionResult(speechRecognitionResult);
 
-            return Ret;
+            return ret;
         }
 
         string OutputSpeechRecognitionResult(SpeechRecognitionResult SpeechRecognitionResult)

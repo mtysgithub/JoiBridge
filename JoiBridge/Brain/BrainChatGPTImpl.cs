@@ -75,7 +75,8 @@ namespace JoiBridge.Brain
                     Model = Models.ChatGpt3_5Turbo0301
                 });
 
-                Console.WriteLine("## Joi的消息: ");
+                Console.WriteLine();
+                ConsoleExtensions.WriteLine("## Joi的消息: ", ConsoleColor.Blue);
                 string CompleteMessage = "";
                 string SpeakBuff = string.Empty;
                 await foreach (var Completion in CompletionResult)
@@ -83,7 +84,7 @@ namespace JoiBridge.Brain
                     if (Completion.Successful)
                     {
                         CompleteMessage += Completion.Choices.First().Message.Content;
-                        Console.Write(Completion.Choices.First().Message.Content);
+                        ConsoleExtensions.Write(Completion.Choices.First().Message.Content, ConsoleColor.Blue);
 
                         SpeakBuff += Completion.Choices.First().Message.Content;
                         if (SpeakBuff.Contains(",") || SpeakBuff.Contains(".") || SpeakBuff.Contains("?") || SpeakBuff.Contains("!") ||
@@ -156,7 +157,10 @@ namespace JoiBridge.Brain
             try
             {
                 fileContent = File.ReadAllText(filePath);
-                Console.WriteLine("文件内容为：\n" + fileContent);
+
+                Console.WriteLine();
+                Console.WriteLine("加载 Mask {0}：\n" + fileContent, fileName);
+                Console.WriteLine();
 
                 // 2. 将文件内容拆分为行
                 string[] lines = fileContent.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);

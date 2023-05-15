@@ -18,15 +18,48 @@ class Program
 
     static HumanSpeechRecognizer MySpeechRecognizer = null;
 
-    static async Task<string> GetHumanInput()
+    private static string _lastPickupTerminalResult;
+
+    public static string LastPickupTerminalResult
     {
+        get
+        {
+            if (!string.IsNullOrEmpty(_lastPickupTerminalResult))
+            {
+                var result = _lastPickupTerminalResult;
+                _lastPickupTerminalResult = string.Empty;
+                return result;
+            }
+
+            return null;
+        }
+        private set => _lastPickupTerminalResult = value;
+    }
+
+    static string GetHumanInput()
+    {
+        string HumanInputContent = string.Empty;
+
         if ((MySpeechRecognizer != null) && (MySpeechRecognizer.Valid()))
         {
-            return await MySpeechRecognizer.RecordTextFromVoice();
+            if (string.IsNullOrEmpty(HumanInputContent = MySpeechRecognizer.LastPickupVoiceResult))
+            {
+                HumanInputContent = LastPickupTerminalResult;
+            }
         }
         else
         {
-            return await Task.Run(() =>
+            HumanInputContent = LastPickupTerminalResult;
+        }
+
+        return HumanInputContent;
+    }
+
+    async static Task<string> GetHumanInputFromTerminal()
+    {
+        while (true)
+        {
+            _lastPickupTerminalResult = await Task.Run(() =>
             {
                 return Console.ReadLine();
             });
@@ -50,21 +83,32 @@ class Program
         MySpeechRecognizer.InitSpeechToTextService();
 
         SpeakerBase Speaker = new JoiSpeaker();
-        Speaker.Build();
+        await Speaker.Build();
 
         BrainChatGPTImpl Brain = new BrainChatGPTImpl();
-        Brain.Build(Speaker);
+        await Brain.Build(Speaker);
+
+        Task.Run(() =>
+        {
+            GetHumanInputFromTerminal();
+        });
 
         Runing = true;
-        
+
+        Console.WriteLine("## 向亲爱的Joi说一句话吧!: ");
         while (Runing)
         {
-            Console.WriteLine("## 来自你的消息: ");
-            string HumanInputString = await GetHumanInput();
+            string HumanInputString = GetHumanInput();
 
-            if (!ParseGM(HumanInputString, Brain))
+            if (!string.IsNullOrEmpty(HumanInputString))
             {
-                await Brain.Talk(HumanInputString);
+                if (!ParseGM(HumanInputString, Brain))
+                {
+                    await Brain.Talk(HumanInputString);
+
+                    Console.WriteLine();
+                    Console.WriteLine("## 来自你的消息: ");
+                }
             }
         }
     }

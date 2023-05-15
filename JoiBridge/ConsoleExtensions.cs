@@ -9,4 +9,12 @@ public static class ConsoleExtensions
         Console.WriteLine(value);
         Console.ForegroundColor = defaultColor;
     }
+
+    public static void Write(string value, ConsoleColor color)
+    {
+        var defaultColor = Console.ForegroundColor;
+        Console.ForegroundColor = color;
+        Console.Write(value);
+        Console.ForegroundColor = defaultColor;
+    }
 }
