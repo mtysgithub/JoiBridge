@@ -27,7 +27,7 @@ Before setting up the project, make sure you have the following installed:
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/JoiBridge.git
+   git clone https://github.com/mtysgithub/JoiBridge.git
    ```
    
 2. Change the directory to the project folder:
