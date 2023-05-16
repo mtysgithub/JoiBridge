@@ -54,6 +54,15 @@ dotnet run
 
 This will start the JoiBridge application, and you can start interacting with the AI voice assistant.
 
+## Development Roadmap
+
+- Complete the voice interaction prototype.
+- Decoupling of kernel and UI layer, C++-based kernel
+- Release Windows interface interaction version
+- Release embedded device version
+- Release 3D digital human.
+- Version 1.0 official release.
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
