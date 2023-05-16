@@ -121,10 +121,11 @@ namespace JoiBridge.Speak
 
             string ret = string.Empty;
 
-            Console.WriteLine("正在采集你的声音");
             await Program.Brain.Speaker.Speak("我在听");
-            var speechRecognitionResult = await SpeechToTextService.RecognizeOnceAsync();
-            ret = OutputSpeechRecognitionResult(speechRecognitionResult);
+
+            Console.WriteLine("正在采集你的声音");
+            var SpeechRecognitionResult = await SpeechToTextService.RecognizeOnceAsync();
+            ret = OutputSpeechRecognitionResult(SpeechRecognitionResult);
 
             return ret;
         }
